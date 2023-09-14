@@ -13,23 +13,24 @@
 - HTML
 - CSS
 - JAVASCRIPT
-   
+
 ## Aprendizados
 
 Nesse projeto, consegui, pela primeira vez, adicionar funcionalidades reais usando JavaScript puro! Consegui explorar coisas como: funções, o Math, e um pouco do if! Fiquei muito satisfeito com o resultado final, e aprendi muita coisa com o desenvolvimento dessa página!
 
 ## Observações
+
 Os cálculos para a quantidade de alimentos e bebidas são baseados nos seguintes critérios:
 
 - Carne:
   - Para eventos com duração inferior a 6 horas, é recomendado uma porção de 400g por pessoa.
   - Para eventos com duração superior a 6 horas, a porção sugerida é de 650g por pessoa.
   - A distribuição ideal entre os tipos de carne é: 50% de carne bovina, 25% de frango e 25% de linguiça.
-    
+
 - Cerveja:
   - Para eventos com duração inferior a 6 horas, é ideal uma quantidade de 1200ml por pessoa.
   - Para eventos com duração superior a 6 horas, recomenda-se uma quantidade de 2000ml por pessoa.
-    
+
 - Refrigerante/Água:
   - Para eventos com duração inferior a 6 horas, recomendamos uma quantidade de 1000ml por pessoa.
   - Para eventos com duração superior a 6 horas, a quantidade sugerida é de 1500ml por pessoa.
@@ -37,6 +38,7 @@ Os cálculos para a quantidade de alimentos e bebidas são baseados nos seguinte
 Crianças valem por 0,5
 
 ## Nota
+
 Os dados utilizados para os cálculos neste projeto foram coletados de vários sites de churrasco. Por favor, note que esses valores são **aproximados**, pois não existem estudos aprofundados sobre as quantidades exatas de alimentos e bebidas necessárias para um churrasco, e também não estou levando em conta várias variáveis como: sexo, metabolismo, etc. Portanto, esses valores devem ser ajustados conforme você necessite. Atualize a função **calcular** para obter um melhor resultado.
 
 ## Como Executar o Projeto

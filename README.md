@@ -29,7 +29,7 @@ Os cálculos para a quantidade de alimentos e bebidas são baseados nos seguinte
  
 - Pão de alho:
   - Para eventos com duração inferior a 6 horas, é aceito um pão de alho por pessoa.
-  - Para eventos com duração superior a 6 horas, a porção sugerida é de 2 pães de alho por pessoa.
+  - Para eventos com duração superior a 6 horas, a porção sugerida é de dois pães de alho por pessoa.
 
 - Cerveja:
   - Para eventos com duração inferior a 6 horas, é ideal uma quantidade de 950ml por pessoa.

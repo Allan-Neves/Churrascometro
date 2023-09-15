@@ -1,8 +1,8 @@
 # Churrascometro
 
- Esse é um código que eu fiz com a ajuda do curso [Programadores BR](https://programadorbr.com/). Segui a base do curso e fiz algumas pequenas alterações para deixar o projeto mais útil e agradável.
+ Esse é um código que eu fiz com a ajuda do curso [Programadores BR](https://programadorbr.com/). Segui a base do curso e fiz algumas alterações para deixar o projeto mais útil e agradável.
 
-![Screenshot do Site](https://imgur.com/ECP1mZ5.png)
+![Screenshot do Site](https://imgur.com/OPXac8z.png)
 
 ## Demo
 
@@ -16,7 +16,7 @@
 
 ## Aprendizados
 
-Nesse projeto, consegui, pela primeira vez, adicionar funcionalidades reais usando JavaScript puro! Consegui explorar coisas como: funções, o Math, e um pouco do if! Fiquei muito satisfeito com o resultado final, e aprendi muita coisa com o desenvolvimento dessa página!
+Nesse projeto, consegui, pela primeira vez, adicionar funcionalidades reais usando JavaScript puro! Consegui explorar coisas como: funções, Math, e um pouco do if! Fiquei muito satisfeito com o resultado final, e aprendi muita coisa com o desenvolvimento dessa página!
 
 ## Observações
 
@@ -25,17 +25,27 @@ Os cálculos para a quantidade de alimentos e bebidas são baseados nos seguinte
 - Carne:
   - Para eventos com duração inferior a 6 horas, é recomendado uma porção de 400g por pessoa.
   - Para eventos com duração superior a 6 horas, a porção sugerida é de 650g por pessoa.
-  - A distribuição ideal entre os tipos de carne é: 50% de carne bovina, 25% de frango e 25% de linguiça.
+  - A distribuição ideal entre os tipos de carne é: 45% de carne bovina, 35% de frango e 20% de linguiça.
+ 
+- Pão de alho:
+  - Para eventos com duração inferior a 6 horas, é aceito um pão de alho por pessoa.
+  - Para eventos com duração superior a 6 horas, a porção sugerida é de 2 pães de alho por pessoa.
 
 - Cerveja:
-  - Para eventos com duração inferior a 6 horas, é ideal uma quantidade de 1200ml por pessoa.
-  - Para eventos com duração superior a 6 horas, recomenda-se uma quantidade de 2000ml por pessoa.
+  - Para eventos com duração inferior a 6 horas, é ideal uma quantidade de 950ml por pessoa.
+  - Para eventos com duração superior a 6 horas, recomenda-se uma quantidade de 1450ml por pessoa.
 
 - Refrigerante/Água:
-  - Para eventos com duração inferior a 6 horas, recomendamos uma quantidade de 1000ml por pessoa.
-  - Para eventos com duração superior a 6 horas, a quantidade sugerida é de 1500ml por pessoa.
+  - Para eventos com duração inferior a 6 horas, recomendamos uma quantidade de 850ml por pessoa.
+  - Para eventos com duração superior a 6 horas, a quantidade sugerida é de 1300ml por pessoa.
 
-Crianças valem por 0,5
+- Copos descartáveis:
+  - Para eventos, é necessário 4 copos descartáveis por pessoa.
+ 
+- Carvão:
+  - Para eventos, é aceitável 5kg de carvão a cada 6kg de carne.
+
+Mulheres valem por 0.75 e crianças valem por 0.50
 
 ## Nota
 

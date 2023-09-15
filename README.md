@@ -23,8 +23,8 @@ Nesse projeto, consegui, pela primeira vez, adicionar funcionalidades reais usan
 Os cálculos para a quantidade de alimentos e bebidas são baseados nos seguintes critérios:
 
 - Carne:
-  - Para eventos com duração inferior a 6 horas, é recomendado uma porção de 400g por pessoa.
-  - Para eventos com duração superior a 6 horas, a porção sugerida é de 650g por pessoa.
+  - Para eventos com duração inferior a 6 horas, é recomendado uma porção de 360g por pessoa.
+  - Para eventos com duração superior a 6 horas, a porção sugerida é de 700g por pessoa.
   - A distribuição ideal entre os tipos de carne é: 45% de carne bovina, 35% de frango e 20% de linguiça.
  
 - Pão de alho:

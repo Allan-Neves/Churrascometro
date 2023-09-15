@@ -10,14 +10,19 @@
 </head>
 
 <body>
-        <div id="container">
-            <h1 id="titulo">Churrascômetro</h1>
-            <input type="number" id="adultos" name="adultos" placeholder="Adultos"></input>
+    <div id="container">
+        <h1 id="titulo">Churrascômetro</h1>
+
+        <div class="content">
+            <input type="number" id="homens" name="homens" placeholder="Homens"></input>
+            <input type="number" id="mulheres" name="mulheres" placeholder="Mulheres"></input>
             <input type="number" id="criancas" name="criancas" placeholder="Crianças"></input>
             <input type="number" id="duracao" name="duracao" placeholder="Duração (horas)"></input>
-            <button onclick="calcular()">Calcular</button>
-            <div id="resultado"></div>
         </div>
+
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -3,44 +3,92 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
     color: #fff;
+    background-color: #242424;
 }
 
 #container {
-    margin: 20px auto;
-    background-color: rgb(95, 141, 226);
+    text-align: center;
+    margin: 40px auto;
+    background-color: #1a1a1a;
     border-radius: 10px;
-    max-width: 300px;
+    box-shadow: 0 0 30px rgba(167, 167, 167, 0.295);
+    max-width: 320px;
     padding: 20px;
     overflow-wrap: break-word;
+    transition: all .3s;
+}
+
+#container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 30px rgb(167, 167, 167);
 }
 
 #titulo {
     text-align: center;
+    margin-bottom: 5px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 input {
-    display: block;
-    width: 100%;
-    padding: 5px;
+    text-align: center;
+    width: 130px;
+    padding: 10px;
     margin: 5px 0px 15px 0px;
     border-radius: 6px;
-    border: 1px solid rgba(0, 0, 0, 0.616);
-    color: rgb(0, 0, 0);
+    border: none;
+    color: #fff;
+    font-weight: bolder;
+}
+
+input::placeholder {
+    color: #fff;
+    font-weight: bold;
+}
+
+input#duracao::placeholder,
+#duracao {
+    color: #000;
+    font-weight: bold;
+}
+
+#homens {
+    background-color: rgb(60, 117, 241);
+}
+
+#mulheres {
+    background-color: rgb(219, 125, 219);
+}
+
+#criancas {
+    background-color: rgb(139, 202, 87);
+}
+
+input:hover {
+    box-shadow: 0 0 12px rgb(255, 255, 255);
 }
 
 button {
-    color: #000;
-    padding: 7px;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.616);
-    box-shadow: 0 0 20px rgba(60, 85, 133, 0.459);
+    background-color: #4b4b4b;
+    color: #fff;
+    margin-top: 8px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
     transition: all 0.6s;
-    width: 80px;
 }
 
 button:hover {
-    cursor: pointer;
     transform: scale(1.04);
 }
 
@@ -52,5 +100,12 @@ button:hover {
 
 #resultado p {
     font-weight: bold;
-    padding: 5px 0;
+    padding: 16px 0 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.267);
+    border-radius: 4px;
+}
+
+#resultado p:hover {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.267);
+    ;
 }

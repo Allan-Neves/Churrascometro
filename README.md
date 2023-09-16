@@ -23,21 +23,18 @@ Nesse projeto, consegui, pela primeira vez, adicionar funcionalidades reais usan
 Os cálculos para a quantidade de alimentos e bebidas são baseados nos seguintes critérios:
 
 - Carne:
-  - Para eventos com duração inferior a 6 horas, é recomendado uma porção de 360g por pessoa.
-  - Para eventos com duração superior a 6 horas, a porção sugerida é de 700g por pessoa.
-  - A distribuição ideal entre os tipos de carne é: 45% de carne bovina, 35% de frango e 20% de linguiça.
+  - A quantidade base de carne consumida por pessoa é de 360 gramas. Para cada incremento de 2 horas na duração do evento, adiciona-se um adicional de 5% a essa quantidade base.
+  - A distribuição entre os tipos de carne é: 45% de carne bovina, 35% de frango e 20% de linguiça.
  
 - Pão de alho:
   - Para eventos com duração inferior a 6 horas, é aceito um pão de alho por pessoa.
   - Para eventos com duração superior a 6 horas, a porção sugerida é de dois pães de alho por pessoa.
 
 - Cerveja:
-  - Para eventos com duração inferior a 6 horas, é ideal uma quantidade de 950ml por pessoa.
-  - Para eventos com duração superior a 6 horas, recomenda-se uma quantidade de 1450ml por pessoa.
+  - A quantidade base de cerveja consumida por pessoa é de 950ml. Para cada incremento de 2 horas na duração do evento, adiciona-se um adicional de 5% a essa quantidade base.
 
 - Refrigerante/Água:
-  - Para eventos com duração inferior a 6 horas, recomendamos uma quantidade de 850ml por pessoa.
-  - Para eventos com duração superior a 6 horas, a quantidade sugerida é de 1300ml por pessoa.
+  - A quantidade base de bebidas consumida por pessoa é de 750ml. Para cada incremento de 2 horas na duração do evento, adiciona-se um adicional de 5% a essa quantidade base.
 
 - Copos descartáveis:
   - Para eventos, é necessário 4 copos descartáveis por pessoa.

@@ -1,9 +1,3 @@
-// Carne - 400g por pessoas + de 6 horas - 650g
-// Cerveja - 1200ml por pessoas + de 6 horas - 2000ml
-// Refrigerante/água - 1000ml por pessoas + de 6 horas 1500ml
-
-// Crianças valem por 0,5
-
 var inputHomens = document.getElementById("homens");
 var inputMulheres = document.getElementById("mulheres");
 var inputCriancas = document.getElementById("criancas");
@@ -15,6 +9,11 @@ function calcular() {
     let mulheres = inputMulheres.value;
     let criancas = inputCriancas.value;
     let duracao = inputDuracao.value;
+
+    if (duracao === ``) {
+        alert(`A duração deve estar preenchida!`);
+        return;
+    }
 
     let pessoas = parseInt(homens) + parseInt(mulheres) + parseInt(criancas);
 
@@ -28,13 +27,15 @@ function calcular() {
 
     let qntdPaoDeAlho = paoDeAlhoPP(duracao) * pessoas;
 
+    let qntdQueijinho = queijinhoPP(duracao) * pessoas;
+
     let qntdCopos = pessoas * 4;
     let qntdCarvao = calcularCarvao(qntdCarne);
 
-    mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qntdBebida, qntdPaoDeAlho, pessoas, qntdCopos, qntdCarvao);
+    mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qntdBebida, qntdPaoDeAlho, qntdQueijinho, pessoas, qntdCopos, qntdCarvao);
 }
 
-function mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qntdBebida, qntdPaoDeAlho, pessoas, qntdCopos, qntdCarvao) {
+function mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qntdBebida, qntdPaoDeAlho, qntdQueijinho, pessoas, qntdCopos, qntdCarvao) {
     resultado.innerHTML = ``;
 
     resultado.innerHTML = formatarQntd(qntdBovina, `carne bovina`);
@@ -42,6 +43,7 @@ function mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qnt
     resultado.innerHTML += formatarQntd(qntdLinguica, `linguiça`);
 
     resultado.innerHTML += `<p>${Math.round(qntdPaoDeAlho / 5)} pacotes de pão de alho</p>`;
+    resultado.innerHTML += `<p>${Math.round(qntdQueijinho)} espetinhos de queijo</p>`;
 
     resultado.innerHTML += `<p>${Math.ceil(qntdCerveja / 330)} latas de cerveja (330ml)</p>`;
     resultado.innerHTML += `<p>${Math.ceil(qntdBebida / 2000)} garrafas de bebidas (2L)</p>`;
@@ -57,6 +59,14 @@ function carnePP(duracao) {
         return 360;
     } else {
         return 700;
+    }
+}
+
+function formatarQntd(quantidade, tipo) {
+    if (quantidade < 1000) {
+        return `<p>${Math.round(quantidade)}g de ${tipo}`;
+    } else {
+        return `<p>${(quantidade / 1000).toFixed(1)}kg de ${tipo}`;
     }
 }
 
@@ -76,14 +86,6 @@ function bebidaPP() {
     }
 }
 
-function formatarQntd(quantidade, tipo) {
-    if (quantidade < 1000) {
-        return `<p>${Math.round(quantidade)}g de ${tipo}`;
-    } else {
-        return `<p>${(quantidade / 1000).toFixed(1)}kg de ${tipo}`;
-    }
-}
-
 function paoDeAlhoPP(duracao) {
     if (duracao < 6) {
         return 1;
@@ -92,8 +94,15 @@ function paoDeAlhoPP(duracao) {
     }
 }
 
-function calcularCarvao(qntdCarne) {
+function queijinhoPP(duracao) {
+    if (duracao < 6) {
+        return 1;
+    } else {
+        return 2;
+    }
+}
 
+function calcularCarvao(qntdCarne) {
     let qntdCarneKg = qntdCarne / 1000;
 
     let carvaoPP = 5 / 6;

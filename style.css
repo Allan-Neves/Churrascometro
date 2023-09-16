@@ -72,10 +72,6 @@ input#duracao::placeholder,
     background-color: rgb(139, 202, 87);
 }
 
-input:hover {
-    box-shadow: 0 0 12px rgb(255, 255, 255);
-}
-
 button {
     background-color: #4b4b4b;
     color: #fff;

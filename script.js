@@ -10,8 +10,8 @@ function calcular() {
     let criancas = inputCriancas.value || 0;
     let duracao = inputDuracao.value;
 
-    if (duracao === ``) {
-        alert(`A duração deve estar preenchida!`);
+    if (duracao === `` || duracao === `0`) {
+        alert(`A duração deve estar preenchida, e ser maior que 0!`);
         return;
     }
 
@@ -23,7 +23,7 @@ function calcular() {
     let qntdLinguica = qntdCarne * 0.20;
 
     let qntdCerveja = ((cervejaPP(duracao) * homens) + (cervejaPP(duracao) * 0.75 * mulheres)) / 330;
-    let qntdBebida = ((bebidaPP(duracao) * homens) + (bebidaPP(duracao) * 0.75 * mulheres) + (carnePP(duracao) * 0.50 * criancas)) / 2000;
+    let qntdBebida = ((bebidaPP(duracao) * homens) + (bebidaPP(duracao) * 0.75 * mulheres) + (bebidaPP(duracao) * 0.50 * criancas)) / 2000;
 
     let qntdPaoDeAlho = (paoDeAlhoPP(duracao) * pessoas) / 5;
 
@@ -38,52 +38,42 @@ function calcular() {
 function mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qntdBebida, qntdPaoDeAlho, qntdQueijinho, pessoas, qntdCopos, qntdCarvao) {
     resultado.innerHTML = ``;
 
-    resultado.innerHTML = formatarQntd(qntdBovina, `carne bovina`);
-    resultado.innerHTML += formatarQntd(qntdFrango, `frango`);
-    resultado.innerHTML += formatarQntd(qntdLinguica, `linguiça`);
+    resultado.innerHTML += `${qntdBovina > 1 ? formatarQntd(qntdBovina, `carne bovina`) : `<p>Nenhuma quantidade de carne bovina será necessária</p>`}`;
+    resultado.innerHTML += `${qntdFrango > 1 ? formatarQntd(qntdFrango, `frango`) : `<p>Nenhuma quantidade de frango será necessária</p>`}`;
+    resultado.innerHTML += `${qntdLinguica > 1 ? formatarQntd(qntdLinguica, `linguiça`) : `<p>Nenhuma quantidade de linguiça será necessária</p>`}`;
 
-    resultado.innerHTML += `<p>${qntdPaoDeAlho > 1 ? `${Math.round(qntdPaoDeAlho)} pacotes de pão de alho` : `Nenhum pão de alho necessário`}</p>`;
+    resultado.innerHTML += `<p>${qntdPaoDeAlho > 1 ? `${Math.round(qntdPaoDeAlho)} pacotes de pão de alho` : `Nenhum pão de alho será necessário`}</p>`;
     resultado.innerHTML += `<p>${qntdQueijinho > 1 ? `${Math.round(qntdQueijinho)} espetinhos de queijo` : "Nenhum espetinho de queijo será necessário"}</p>`;
 
     resultado.innerHTML += `<p>${qntdCerveja > 1 ? `${Math.ceil(qntdCerveja)} latas de cerveja (330ml)` : `Nenhuma lata de cerveja será necessária`}</p>`;
-    resultado.innerHTML += `<p>${qntdBebida > 1 ? `${Math.ceil(qntdBebida)} garrafas de bebidas (2L)` : `Nenhuma garrafa de bebida é necessária`}</p>`;
+    resultado.innerHTML += `<p>${qntdBebida > 1 ? `${Math.ceil(qntdBebida)} garrafas de bebidas (2L)` : `Nenhuma garrafa de bebida será necessária`}</p>`;
 
-    resultado.innerHTML += `<p>${qntdCopos > 1 ? `${Math.ceil(qntdCopos / 100)} sacos de copos descartáveis` : `Nenhum copo descartável vai ser necessário`}</p>`;
-    resultado.innerHTML += `<p>${Math.round(qntdCarvao)}kg de carvão</p>`;
+    resultado.innerHTML += `<p>${qntdCopos > 1 ? `${Math.ceil(qntdCopos / 100)} sacos de copos descartáveis` : `Nenhum copo descartável será necessário`}</p>`;
+    resultado.innerHTML += `<p>${qntdCarvao > 1 ? `${Math.round(qntdCarvao)}kg de carvão` : `Nenhum kilo de carvão será necessário`} </p>`;
 
     resultado.innerHTML += `<p>Total de pessoas: ${(pessoas)}</p>`;
 }
 
 function carnePP(duracao) {
-    if (duracao < 6) {
-        return 360;
-    } else {
-        return 700;
-    }
+    let valor = 360;
+    let adicionarExtra = Math.floor(duracao / 2) * 0.05;
+
+    return valor * (1 + adicionarExtra);
 }
 
-function formatarQntd(quantidade, tipo) {
-    if (quantidade < 1000) {
-        return `<p>${Math.round(quantidade)}g de ${tipo}`;
-    } else {
-        return `<p>${(quantidade / 1000).toFixed(1)}kg de ${tipo}`;
-    }
+function cervejaPP(duracao) {
+    let valor = 950;
+    let adicionarExtra = Math.floor(duracao / 2) * 0.02;
+
+    return valor * (1 + adicionarExtra);
+
 }
 
-function cervejaPP() {
-    if (duracao < 6) {
-        return 950;
-    } else {
-        return 1450;
-    }
-}
+function bebidaPP(duracao) {
+    let valor = 750;
+    let adicionarExtra = Math.floor(duracao / 2) * 0.04;
 
-function bebidaPP() {
-    if (duracao < 6) {
-        return 850;
-    } else {
-        return 1300;
-    }
+    return valor * (1 + adicionarExtra);
 }
 
 function paoDeAlhoPP(duracao) {
@@ -102,6 +92,7 @@ function queijinhoPP(duracao) {
     }
 }
 
+
 function calcularCarvao(qntdCarne) {
     let qntdCarneKg = qntdCarne / 1000;
 
@@ -110,4 +101,12 @@ function calcularCarvao(qntdCarne) {
     let totalCarvao = qntdCarneKg * carvaoPP;
 
     return totalCarvao;
+}
+
+function formatarQntd(quantidade, tipo) {
+    if (quantidade < 1000) {
+        return `<p>${Math.round(quantidade)}g de ${tipo}`;
+    } else {
+        return `<p>${(quantidade / 1000).toFixed(1)}kg de ${tipo}`;
+    }
 }

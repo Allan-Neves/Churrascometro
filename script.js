@@ -5,9 +5,9 @@ var inputDuracao = document.getElementById("duracao");
 var resultado = document.getElementById("resultado");
 
 function calcular() {
-    let homens = inputHomens.value;
-    let mulheres = inputMulheres.value;
-    let criancas = inputCriancas.value;
+    let homens = inputHomens.value || 0;
+    let mulheres = inputMulheres.value || 0;
+    let criancas = inputCriancas.value || 0;
     let duracao = inputDuracao.value;
 
     if (duracao === ``) {
@@ -22,10 +22,10 @@ function calcular() {
     let qntdFrango = qntdCarne * 0.35;
     let qntdLinguica = qntdCarne * 0.20;
 
-    let qntdCerveja = (cervejaPP(duracao) * homens) + (cervejaPP(duracao) * 0.75 * mulheres);
-    let qntdBebida = (bebidaPP(duracao) * homens) + (bebidaPP(duracao) * 0.75 * mulheres) + (carnePP(duracao) * 0.50 * criancas);
+    let qntdCerveja = ((cervejaPP(duracao) * homens) + (cervejaPP(duracao) * 0.75 * mulheres)) / 330;
+    let qntdBebida = ((bebidaPP(duracao) * homens) + (bebidaPP(duracao) * 0.75 * mulheres) + (carnePP(duracao) * 0.50 * criancas)) / 2000;
 
-    let qntdPaoDeAlho = paoDeAlhoPP(duracao) * pessoas;
+    let qntdPaoDeAlho = (paoDeAlhoPP(duracao) * pessoas) / 5;
 
     let qntdQueijinho = queijinhoPP(duracao) * pessoas;
 
@@ -42,13 +42,13 @@ function mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qnt
     resultado.innerHTML += formatarQntd(qntdFrango, `frango`);
     resultado.innerHTML += formatarQntd(qntdLinguica, `linguiça`);
 
-    resultado.innerHTML += `<p>${Math.round(qntdPaoDeAlho / 5)} pacotes de pão de alho</p>`;
-    resultado.innerHTML += `<p>${Math.round(qntdQueijinho)} espetinhos de queijo</p>`;
+    resultado.innerHTML += `<p>${qntdPaoDeAlho > 1 ? `${Math.round(qntdPaoDeAlho)} pacotes de pão de alho` : `Nenhum pão de alho necessário`}</p>`;
+    resultado.innerHTML += `<p>${qntdQueijinho > 1 ? `${Math.round(qntdQueijinho)} espetinhos de queijo` : "Nenhum espetinho de queijo será necessário"}</p>`;
 
-    resultado.innerHTML += `<p>${Math.ceil(qntdCerveja / 330)} latas de cerveja (330ml)</p>`;
-    resultado.innerHTML += `<p>${Math.ceil(qntdBebida / 2000)} garrafas de bebidas (2L)</p>`;
+    resultado.innerHTML += `<p>${qntdCerveja > 1 ? `${Math.ceil(qntdCerveja)} latas de cerveja (330ml)` : `Nenhuma lata de cerveja será necessária`}</p>`;
+    resultado.innerHTML += `<p>${qntdBebida > 1 ? `${Math.ceil(qntdBebida)} garrafas de bebidas (2L)` : `Nenhuma garrafa de bebida é necessária`}</p>`;
 
-    resultado.innerHTML += `<p>${Math.ceil(qntdCopos / 100)} saco(s) de copos descartáveis</p>`;
+    resultado.innerHTML += `<p>${qntdCopos > 1 ? `${Math.ceil(qntdCopos / 100)} sacos de copos descartáveis` : `Nenhum copo descartável vai ser necessário`}</p>`;
     resultado.innerHTML += `<p>${Math.round(qntdCarvao)}kg de carvão</p>`;
 
     resultado.innerHTML += `<p>Total de pessoas: ${(pessoas)}</p>`;

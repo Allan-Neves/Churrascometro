@@ -2,7 +2,7 @@
 
  Esse é um código que eu fiz com a ajuda do curso [Programadores BR](https://programadorbr.com/). Segui a base do curso e fiz algumas alterações para deixar o projeto mais útil e agradável.
 
-![Screenshot do Site](https://imgur.com/OPXac8z.png)
+![Screenshot do Site](https://imgur.com/VHgk5gF.png)
 
 ## Demo
 

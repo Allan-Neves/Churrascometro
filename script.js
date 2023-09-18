@@ -4,6 +4,10 @@ var inputCriancas = document.getElementById("criancas");
 var inputDuracao = document.getElementById("duracao");
 var resultado = document.getElementById("resultado");
 
+// document.addEventListener('DOMContentLoaded', function () {
+//     carregarDados();
+// });
+
 function calcular() {
     let homens = inputHomens.value || 0;
     let mulheres = inputMulheres.value || 0;
@@ -32,24 +36,58 @@ function calcular() {
     let qntdCopos = pessoas * 4;
     let qntdCarvao = calcularCarvao(qntdCarne);
 
+    // salvarDados();
     mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qntdBebida, qntdPaoDeAlho, qntdQueijinho, pessoas, qntdCopos, qntdCarvao);
 }
+
+// function salvarDados() {
+//     let homens = inputHomens.value || 0;
+//     let mulheres = inputMulheres.value || 0;
+//     let criancas = inputCriancas.value || 0;
+//     let duracao = inputDuracao.value;
+
+//     let dados = {
+//         homens: homens,
+//         mulheres: mulheres,
+//         criancas: criancas,
+//         duracao: duracao,
+//         resultado: resultado
+//     }
+
+//     let dadosJSON = JSON.stringify(dados);
+
+//     localStorage.setItem("dadosChurrasco", dadosJSON);
+// }
+
+// function carregarDados() {
+//     let dadosJSON = localStorage.getItem("dadosChurrasco");
+
+//     if (dadosJSON) {
+//         let dados = JSON.parse(dadosJSON);
+
+//         inputHomens.value = dados.homens;
+//         inputMulheres.value = dados.mulheres;
+//         inputCriancas.value = dados.criancas;
+//         inputDuracao.value = dados.duracao;
+//         resultado.innerHTML = dados.resultado;
+//     }
+// }
 
 function mostrarResultado(qntdBovina, qntdFrango, qntdLinguica, qntdCerveja, qntdBebida, qntdPaoDeAlho, qntdQueijinho, pessoas, qntdCopos, qntdCarvao) {
     resultado.innerHTML = ``;
 
-    resultado.innerHTML += `${qntdBovina > 1 ? formatarQntd(qntdBovina, `carne bovina`) : `<p>Nenhuma quantidade de carne bovina será necessária</p>`}`;
-    resultado.innerHTML += `${qntdFrango > 1 ? formatarQntd(qntdFrango, `frango`) : `<p>Nenhuma quantidade de frango será necessária</p>`}`;
-    resultado.innerHTML += `${qntdLinguica > 1 ? formatarQntd(qntdLinguica, `linguiça`) : `<p>Nenhuma quantidade de linguiça será necessária</p>`}`;
+    resultado.innerHTML += `${qntdBovina >= 1 ? formatarQntd(qntdBovina, `carne bovina`) : `<p>Nenhuma quantidade de carne bovina será necessária</p>`}`;
+    resultado.innerHTML += `${qntdFrango >= 1 ? formatarQntd(qntdFrango, `frango`) : `<p>Nenhuma quantidade de frango será necessária</p>`}`;
+    resultado.innerHTML += `${qntdLinguica >= 1 ? formatarQntd(qntdLinguica, `linguiça`) : `<p>Nenhuma quantidade de linguiça será necessária</p>`}`;
 
-    resultado.innerHTML += `<p>${qntdPaoDeAlho > 1 ? `${Math.round(qntdPaoDeAlho)} pacotes de pão de alho` : `Nenhum pão de alho será necessário`}</p>`;
-    resultado.innerHTML += `<p>${qntdQueijinho > 1 ? `${Math.round(qntdQueijinho)} espetinhos de queijo` : "Nenhum espetinho de queijo será necessário"}</p>`;
+    resultado.innerHTML += `<p>${qntdPaoDeAlho >= 1 ? `${Math.round(qntdPaoDeAlho)} pacote(s) de pão de alho` : `Nenhum pão de alho será necessário`}</p>`;
+    resultado.innerHTML += `<p>${qntdQueijinho >= 1 ? `${Math.round(qntdQueijinho)} espetinho(s) de queijo` : "Nenhum espetinho de queijo será necessário"}</p>`;
 
-    resultado.innerHTML += `<p>${qntdCerveja > 1 ? `${Math.ceil(qntdCerveja)} latas de cerveja (330ml)` : `Nenhuma lata de cerveja será necessária`}</p>`;
-    resultado.innerHTML += `<p>${qntdBebida > 1 ? `${Math.ceil(qntdBebida)} garrafas de bebidas (2L)` : `Nenhuma garrafa de bebida será necessária`}</p>`;
+    resultado.innerHTML += `<p>${qntdCerveja >= 1 ? `${Math.ceil(qntdCerveja)} latas de cerveja (330ml)` : `Nenhuma lata de cerveja será necessária`}</p>`;
+    resultado.innerHTML += `<p>${qntdBebida >= 1 ? `${Math.ceil(qntdBebida)} garrafas de bebidas (2L)` : `Nenhuma garrafa de bebida será necessária`}</p>`;
 
-    resultado.innerHTML += `<p>${qntdCopos > 1 ? `${Math.ceil(qntdCopos / 100)} sacos de copos descartáveis` : `Nenhum copo descartável será necessário`}</p>`;
-    resultado.innerHTML += `<p>${qntdCarvao > 1 ? `${Math.round(qntdCarvao)}kg de carvão` : `Nenhum kilo de carvão será necessário`} </p>`;
+    resultado.innerHTML += `<p>${qntdCopos >= 1 ? `${Math.ceil(qntdCopos / 100)} saco(s) de copos descartáveis` : `Nenhum copo descartável será necessário`}</p>`;
+    resultado.innerHTML += `<p>${qntdCarvao >= 1 ? `${Math.round(qntdCarvao)}kg de carvão` : `Nenhum kilo de carvão será necessário`} </p>`;
 
     resultado.innerHTML += `<p>Total de pessoas: ${(pessoas)}</p>`;
 }
